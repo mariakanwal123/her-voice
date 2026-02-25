@@ -146,6 +146,34 @@ section{padding:80px 5%}
 .author-link-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--dark);color:white;text-decoration:none;padding:.5rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:600;transition:all .2s;}
 .author-link-btn:hover{background:var(--rose);transform:translateY(-2px);}
 .author-papers-list{display:grid;gap:.5rem;}
+
+/* AUTHOR SOCIAL ROW */
+.author-social-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem;}
+.author-social-pill{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.9);text-decoration:none;padding:.3rem .85rem;border-radius:50px;font-size:.75rem;font-weight:600;transition:all .2s;}
+.author-social-pill:hover{background:rgba(255,255,255,.3);color:white;}
+
+/* APP CARDS */
+.author-apps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:2rem;}
+.author-app-card{display:flex;align-items:flex-start;gap:1rem;background:var(--cream);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.4rem;text-decoration:none;transition:all .25s;position:relative;overflow:hidden;}
+.author-app-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold));}
+.author-app-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(200,64,90,.15);border-color:var(--rose-light);}
+.app-icon{font-size:2.2rem;flex-shrink:0;line-height:1;}
+.app-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:.3rem;}
+.app-desc{font-size:.8rem;color:var(--text-muted);line-height:1.5;margin-bottom:.6rem;}
+.app-open-btn{display:inline-block;background:var(--rose);color:white;font-size:.75rem;font-weight:700;padding:.3rem .8rem;border-radius:50px;transition:background .2s;}
+.author-app-card:hover .app-open-btn{background:var(--mid);}
+
+/* WEBSITES GRID */
+.author-websites-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.8rem;margin-bottom:2rem;}
+.author-website-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:white;border:1px solid var(--border);border-radius:14px;padding:1.2rem .8rem;text-decoration:none;transition:all .25s;gap:.4rem;}
+.author-website-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(200,64,90,.14);border-color:var(--rose-light);}
+.aw-icon{font-size:1.8rem;}
+.aw-name{font-size:.82rem;font-weight:700;color:var(--dark);line-height:1.3;}
+.aw-url{font-size:.7rem;color:var(--rose);word-break:break-all;line-height:1.3;}
+
+/* BOOK ISBN */
+.book-isbn{display:block;font-size:.78rem;color:var(--text-muted);margin-top:.2rem;font-family:'Courier New',monospace;letter-spacing:.3px;}
+.author-book{position:relative;}
 .author-paper{display:flex;align-items:flex-start;gap:.6rem;font-size:.85rem;}
 .author-paper a{color:var(--rose);text-decoration:none;line-height:1.5;}
 .author-paper a:hover{text-decoration:underline;}
@@ -692,99 +720,239 @@ body.admin-mode .admin-mode-bar{display:block;}
 
 <!-- AUTHOR PROFILE SECTION -->
 <section class="author-profile-section" id="author-profile">
-  <button class="edit-btn" onclick="editAuthorProfile()" style="top:20px;right:5%;">✏️ Edit Profile</button>
-  <span class="section-label">Meet the Author</span>
+  <button class="edit-btn" onclick="editAuthorSection()" style="top:20px;right:5%;">✏️ Edit Profile</button>
+  <span class="section-label" id="authorSectionLabel">Meet the Author</span>
   <h2 class="section-title" style="margin-bottom:2rem;">Maria <em>Kanwal</em></h2>
   <div class="author-profile-card" id="authorProfileCard">
-    <div class="author-profile-header">
-      <div class="author-profile-avatar">MK</div>
+
+    <!-- HEADER -->
+    <div class="author-profile-header" id="authorProfileHeader">
+      <div class="author-profile-avatar" id="authorAvatar">MK</div>
       <div class="author-profile-info">
-        <h2>Maria Kanwal</h2>
-        <div class="author-tagline">Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · Scholar · Author</div>
-        <a href="/cdn-cgi/l/email-protection#264b43425447484d55434966414b474f4a0845494b" class="author-contact-link">✉ <span class="__cf_email__" data-cfemail="2c4149485e4d42475f49436c4b414d4540024f4341">[email&#160;protected]</span></a>
+        <h2 id="authorName">Maria Kanwal</h2>
+        <div class="author-tagline" id="authorTagline">Research Associate · Assistant Digital Editor · SEO Content Writer · Digital Marketing Strategist · Scholar · Author</div>
+        <a href="mailto:medrankseo@gmail.com" class="author-contact-link" id="authorEmail">✉ medrankseo@gmail.com</a>
+        <div class="author-social-row">
+          <a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank" class="author-social-pill">💼 LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank" class="author-social-pill">🎓 Google Scholar</a>
+          <a href="https://ssrn.com/author=5225172" target="_blank" class="author-social-pill">📄 SSRN</a>
+          <a href="https://orcid.org/0000-0003-1528-4424" target="_blank" class="author-social-pill">🆔 ORCID</a>
+          <a href="https://independent.academia.edu/kanwalmaria1" target="_blank" class="author-social-pill">🏛 Academia</a>
+        </div>
       </div>
     </div>
-    <div class="author-profile-body">
-      <p class="author-bio">Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors. She currently works with Dubai-based clinics and international clients, creating SEO-optimized web pages, blogs, and Google Business Profile (GMB) content across diverse industries. She combines academic research expertise with practical digital marketing execution, specializing in On-Page SEO, Off-Page SEO, Technical SEO, SEM, SMM, and content strategy development.</p>
 
+    <div class="author-profile-body">
+
+      <!-- BIO -->
+      <div id="authorBioSection">
+        <button class="edit-btn" onclick="editAuthorBio()" style="top:4px;right:4px;padding:3px 8px;font-size:.6rem;">✏️</button>
+        <p class="author-bio" id="authorBio">Maria Kanwal is a Research Associate, Assistant Digital Editor, SEO Content Writer, and Digital Marketing Professional with international experience across medical, healthcare, technology, geopolitics, and women empowerment sectors. She currently works with Dubai-based clinics and international clients, creating SEO-optimized web pages, blogs, and Google Business Profile (GMB) content across diverse industries. She combines academic research expertise with practical digital marketing execution, specializing in On-Page SEO, Off-Page SEO, Technical SEO, SEM, SMM, and content strategy development. She holds a BDDS (Defence &amp; Diplomatic Studies) from Fatima Jinnah Women University, Rawalpindi with CGPA 3.32 (81.89%).</p>
+      </div>
+
+      <!-- STATS -->
       <div class="author-stats-grid">
         <div class="author-stat-card"><div class="author-stat-num">5+</div><div class="author-stat-lbl">Books Published</div></div>
-        <div class="author-stat-card"><div class="author-stat-num">10+</div><div class="author-stat-lbl">Research Papers</div></div>
-        <div class="author-stat-card"><div class="author-stat-num">10+</div><div class="author-stat-lbl">Digital Platforms</div></div>
-        <div class="author-stat-card"><div class="author-stat-num">3+</div><div class="author-stat-lbl">Digital Apps</div></div>
+        <div class="author-stat-card"><div class="author-stat-num">9+</div><div class="author-stat-lbl">Research Papers</div></div>
+        <div class="author-stat-card"><div class="author-stat-num">10</div><div class="author-stat-lbl">Digital Platforms</div></div>
+        <div class="author-stat-card"><div class="author-stat-num">3</div><div class="author-stat-lbl">Digital Apps</div></div>
       </div>
 
-      <div id="author-platforms-section">
+      <!-- PLATFORMS -->
+      <div id="author-platforms-section" style="position:relative;">
+        <button class="edit-btn" onclick="editPlatformsSection()" style="top:4px;right:4px;padding:3px 8px;font-size:.6rem;">✏️ Edit</button>
         <div class="author-section-title">🌐 Digital Platforms Founded</div>
-        <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:1rem;">Click any platform to visit it:</p>
-        <div class="author-platforms">
-          <a href="https://womenhub.org" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🌸 Women Hub ↗</a>
-          <a href="https://bloomwell.co" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🌿 Bloom Well ↗</a>
-          <a href="https://herworld.co" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🌍 Her World ↗</a>
-          <a href="https://lumierebeauty.co" target="_blank" rel="noopener" class="platform-tag platform-tag-link">✨ Lumiere Beauty ↗</a>
-          <a href="https://yourbeautyyourglow.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">💄 Your Beauty Your Glow ↗</a>
-          <a href="https://sherises.co" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🚀 She Rises ↗</a>
-          <a href="https://perfectbeautytips.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">💅 Perfect Beauty Tips ↗</a>
-          <a href="https://lacuniacooking.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🍳 LaCunia Cooking Recipes ↗</a>
-          <a href="https://saveourkitchen.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🥘 Save Our Kitchen ↗</a>
-          <a href="https://medrankseo.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">📈 Med Rank SEO ↗</a>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:1rem;">Click any platform to visit:</p>
+        <div class="author-platforms" id="platformsList">
+          <a href="https://womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🌸 Women Hub ↗</a>
+          <a href="http://bloomwell.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🌿 Bloom Well ↗</a>
+          <a href="http://herworld.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🌍 Her World ↗</a>
+          <a href="http://lumierebeauty.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">✨ Lumiere Beauty ↗</a>
+          <a href="http://yourbeautyyourglow.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">💄 Your Beauty Your Glow ↗</a>
+          <a href="http://sherises.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🚀 She Rises ↗</a>
+          <a href="http://perfectbeautytips.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">💅 Perfect Beauty Tips ↗</a>
+          <a href="http://lacunia-cooking-recipes.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🍳 LaCunia Cooking Recipes ↗</a>
+          <a href="http://saveour-kitchen.womenhub.sbs/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🥘 Save Our Kitchen ↗</a>
+          <a href="https://mariakanwal123.github.io/med-rank-seo/" target="_blank" rel="noopener" class="platform-tag platform-tag-link">📈 Med Rank SEO ↗</a>
         </div>
-        <p style="font-size:.75rem;color:var(--text-muted);margin-top:.6rem;font-style:italic;">Note: Update the URLs above in the admin edit panel with your actual domain links.</p>
       </div>
 
-      <div id="author-books-section">
+      <!-- APPS -->
+      <div id="author-apps-section" style="position:relative;margin-top:1.5rem;">
+        <button class="edit-btn" onclick="editAppsSection()" style="top:4px;right:4px;padding:3px 8px;font-size:.6rem;">✏️ Edit</button>
+        <div class="author-section-title">📱 Digital Applications</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:1rem;">Click to open the app:</p>
+        <div class="author-apps-grid" id="appsList">
+          <a href="https://mariakanwal123.github.io/ramadan-calendar-2026/" target="_blank" rel="noopener" class="author-app-card">
+            <div class="app-icon">🌙</div>
+            <div class="app-info">
+              <div class="app-name">Ramadan Calendar 2026</div>
+              <div class="app-desc">Islamic calendar &amp; daily schedule app for Ramadan 2026</div>
+              <span class="app-open-btn">Open App ↗</span>
+            </div>
+          </a>
+          <a href="https://mariakanwal123.github.io/little-muslims-islamic-app-2026/" target="_blank" rel="noopener" class="author-app-card">
+            <div class="app-icon">🕌</div>
+            <div class="app-info">
+              <div class="app-name">Little Muslims Islamic App 2026</div>
+              <div class="app-desc">Islamic education &amp; faith-based tools for Muslim children</div>
+              <span class="app-open-btn">Open App ↗</span>
+            </div>
+          </a>
+          <a href="https://mariakanwal123.github.io/ramadan-2026-wellness-guide/" target="_blank" rel="noopener" class="author-app-card">
+            <div class="app-icon">💚</div>
+            <div class="app-info">
+              <div class="app-name">Ramadan 2026 Wellness Guide</div>
+              <div class="app-desc">Structured spiritual wellness &amp; health guidance for Ramadan</div>
+              <span class="app-open-btn">Open App ↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- BOOKS -->
+      <div id="author-books-section" style="position:relative;">
+        <button class="edit-btn" onclick="editBooksSection()" style="top:4px;right:4px;padding:3px 8px;font-size:.6rem;">✏️ Edit</button>
         <div class="author-section-title">📚 Published Books</div>
-        <div class="author-books">
-          <div class="author-book"><strong>Revealing Environmental Influences on Breast Cancer Risk</strong><span>ISBN: 978-1-304-42043-5</span></div>
-          <div class="author-book"><strong>Progressive Voices: Charting Women's Empowerment</strong><span>ISBN: 978-1-304-43380-0</span></div>
-          <div class="author-book"><strong>Pakistan's Economic Transformation from Agrarian Society to an Emerging Market</strong><span>ISBN: 978-1-304-42026-8</span></div>
-          <div class="author-book"><strong>Death or Evolution of Globalization during COVID-19 Era</strong><span>ISBN: 978-1-304-42030-5</span></div>
-          <div class="author-book"><strong>Rise of Chinese Public Diplomacy during COVID-19 Era</strong><span>Published Research Monograph</span></div>
+        <div class="author-books" id="booksList">
+          <div class="author-book">
+            <strong>Revealing Environmental Influences on Breast Cancer Risk</strong>
+            <span class="book-isbn">ISBN: 978-1-304-42043-5</span>
+          </div>
+          <div class="author-book">
+            <strong>Progressive Voices: Charting Women's Empowerment</strong>
+            <span class="book-isbn">ISBN: 978-1-304-43380-0</span>
+          </div>
+          <div class="author-book">
+            <strong>Pakistan's Economic Transformation from Agrarian Society to an Emerging Market</strong>
+            <span class="book-isbn">ISBN: 978-1-304-42026-8</span>
+          </div>
+          <div class="author-book">
+            <strong>Death or Evolution of Globalization during COVID-19 Era</strong>
+            <span class="book-isbn">ISBN: 978-1-304-42030-5</span>
+          </div>
+          <div class="author-book">
+            <strong>Rise of Chinese Public Diplomacy during COVID-19 Era</strong>
+            <span class="book-isbn">Published Research Monograph</span>
+          </div>
         </div>
       </div>
 
-      <div id="author-research-section">
+      <!-- RESEARCH PAPERS -->
+      <div id="author-research-section" style="position:relative;">
+        <button class="edit-btn" onclick="editResearchSection()" style="top:4px;right:4px;padding:3px 8px;font-size:.6rem;">✏️ Edit</button>
         <div class="author-section-title">📄 Selected Research Papers</div>
-        <div class="author-papers-list">
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4786199" target="_blank">Assessing the Impact of the 2024 Hualien Earthquake in Taiwan</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4382051" target="_blank">Natural Disaster Earthquake in Turkiye and Syria 2023: Humanitarian Response</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667601" target="_blank">China Pakistan Economic Corridor (CPEC) 10 Years Celebrations</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667577" target="_blank">3 Generative AI Applications for IoT You Must Know About</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4312258" target="_blank">Brexit and its Implications for European Union</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4300138" target="_blank">Floods in Pakistan: Global Warming or Foreign Nations</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4126228" target="_blank">Rise of Chinese Public Diplomacy during COVID-19 Era</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105194" target="_blank">Nuclear Weapons a Source of Peace and Stability Between India and Pakistan</a></div>
-          <div class="author-paper"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4101253" target="_blank">Death of Globalization during COVID-19 Era</a></div>
+        <div class="author-papers-list" id="papersList">
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4786199" target="_blank">Assessing the Impact of the 2024 Hualien Earthquake in Taiwan</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4382051" target="_blank">Natural Disaster Earthquake in Turkiye and Syria 2023: Humanitarian Response</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667601" target="_blank">China Pakistan Economic Corridor (CPEC) 10 Years Celebrations</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4667577" target="_blank">3 Generative AI Applications for IoT You Must Know About</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4312258" target="_blank">Brexit and its Implications for European Union</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4300138" target="_blank">Floods in Pakistan: Global Warming or Foreign Nations</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4126228" target="_blank">Rise of Chinese Public Diplomacy during COVID-19 Era</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105194" target="_blank">Nuclear Weapons a Source of Peace and Stability Between India and Pakistan</a>
+          </div>
+          <div class="author-paper">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4101253" target="_blank">Death of Globalization during COVID-19 Era</a>
+          </div>
         </div>
       </div>
 
+      <!-- ACADEMIC PROFILES -->
       <div style="margin-top:2rem;">
-        <div class="author-section-title">🔗 Academic Profiles</div>
+        <div class="author-section-title">🔗 Academic &amp; Professional Profiles</div>
         <div class="author-links">
           <a href="https://www.linkedin.com/in/maria-kanwal-637629207/" target="_blank" class="author-link-btn">💼 LinkedIn</a>
           <a href="https://scholar.google.com/citations?user=6jmGlYwAAAAJ" target="_blank" class="author-link-btn">🎓 Google Scholar</a>
-          <a href="https://ssrn.com/author=5225172" target="_blank" class="author-link-btn">📄 SSRN</a>
+          <a href="https://ssrn.com/author=5225172" target="_blank" class="author-link-btn">📄 SSRN Profile</a>
           <a href="https://orcid.org/0000-0003-1528-4424" target="_blank" class="author-link-btn">🆔 ORCID</a>
           <a href="https://independent.academia.edu/kanwalmaria1" target="_blank" class="author-link-btn">🏛 Academia.edu</a>
         </div>
       </div>
 
-      <div style="margin-top:1.5rem;" id="author-apps-section">
-        <div class="author-section-title">📱 Digital Applications</div>
-        <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:1rem;">Click to open the app:</p>
-        <div class="author-platforms">
-          <a href="https://ramadancalendar2026.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🌙 Ramadan Calendar 2026 ↗</a>
-          <a href="https://littlemuslimsapp.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">🕌 Little Muslims Islamic App 2026 ↗</a>
-          <a href="https://ramadanwellness2026.com" target="_blank" rel="noopener" class="platform-tag platform-tag-link">💚 Ramadan 2026 Wellness Guide ↗</a>
+      <!-- WEBSITES I WRITE FOR -->
+      <div style="margin-top:2rem;position:relative;">
+        <button class="edit-btn" onclick="editWebsitesSection()" style="top:4px;right:4px;padding:3px 8px;font-size:.6rem;">✏️ Edit</button>
+        <div class="author-section-title">✍️ My Websites &amp; Publications</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:1rem;">Platforms I create and publish content on:</p>
+        <div class="author-websites-grid" id="websitesList">
+          <a href="https://womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">🌸</div>
+            <div class="aw-name">Women Hub</div>
+            <div class="aw-url">womenhub.sbs</div>
+          </a>
+          <a href="http://bloomwell.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">🌿</div>
+            <div class="aw-name">Bloom Well</div>
+            <div class="aw-url">bloomwell.womenhub.sbs</div>
+          </a>
+          <a href="http://herworld.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">🌍</div>
+            <div class="aw-name">Her World</div>
+            <div class="aw-url">herworld.womenhub.sbs</div>
+          </a>
+          <a href="http://lumierebeauty.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">✨</div>
+            <div class="aw-name">Lumiere Beauty</div>
+            <div class="aw-url">lumierebeauty.womenhub.sbs</div>
+          </a>
+          <a href="http://yourbeautyyourglow.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">💄</div>
+            <div class="aw-name">Your Beauty Your Glow</div>
+            <div class="aw-url">yourbeautyyourglow.womenhub.sbs</div>
+          </a>
+          <a href="http://sherises.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">🚀</div>
+            <div class="aw-name">She Rises</div>
+            <div class="aw-url">sherises.womenhub.sbs</div>
+          </a>
+          <a href="http://perfectbeautytips.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">💅</div>
+            <div class="aw-name">Perfect Beauty Tips</div>
+            <div class="aw-url">perfectbeautytips.womenhub.sbs</div>
+          </a>
+          <a href="http://lacunia-cooking-recipes.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">🍳</div>
+            <div class="aw-name">LaCunia Cooking Recipes</div>
+            <div class="aw-url">lacunia-cooking-recipes.womenhub.sbs</div>
+          </a>
+          <a href="http://saveour-kitchen.womenhub.sbs/" target="_blank" class="author-website-card">
+            <div class="aw-icon">🥘</div>
+            <div class="aw-name">Save Our Kitchen</div>
+            <div class="aw-url">saveour-kitchen.womenhub.sbs</div>
+          </a>
+          <a href="https://mariakanwal123.github.io/med-rank-seo/" target="_blank" class="author-website-card">
+            <div class="aw-icon">📈</div>
+            <div class="aw-name">Med Rank SEO</div>
+            <div class="aw-url">mariakanwal123.github.io</div>
+          </a>
         </div>
-        <p style="font-size:.75rem;color:var(--text-muted);margin-top:.6rem;font-style:italic;">Note: Update the URLs above in the admin edit panel with your actual app links.</p>
       </div>
 
-      <div style="margin-top:1.5rem;text-align:center;">
-        <a href="/cdn-cgi/l/email-protection#8ee3ebeafcefe0e5fdebe1cee9e3efe7e2a0ede1e3" class="hero-btn" style="background:var(--rose);color:white;box-shadow:0 8px 30px rgba(200,64,90,.3);font-size:.9rem;">
+      <!-- CONNECT CTA -->
+      <div style="margin-top:2rem;text-align:center;padding:2rem;background:linear-gradient(135deg,var(--rose-pale),#FFF5F7);border-radius:16px;border:1px solid var(--border);">
+        <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:.5rem;">Let's Connect</div>
+        <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:1.2rem;">For collaborations, guest posts, SEO consulting, or research inquiries</p>
+        <a href="mailto:medrankseo@gmail.com" class="hero-btn" style="background:var(--rose);color:white;box-shadow:0 8px 30px rgba(200,64,90,.3);font-size:.9rem;">
           ✉ Connect with Maria Kanwal
         </a>
       </div>
+
     </div>
   </div>
 </section>
@@ -1522,21 +1690,147 @@ function deleteBlogPost(id, event) {
   renderManageBlogsList();
 }
 
-// ---- AUTHOR PROFILE ----
-function editAuthorProfile() {
-  openEditModal('Author Profile Header', [
-    {label:'Author Name', id:'an', type:'text', value:'Maria Kanwal'},
-    {label:'Tagline / Roles', id:'at', type:'textarea', height:60, value: document.querySelector('.author-tagline')?.textContent||''},
-    {label:'Email', id:'ae', type:'text', value:'medrankseo@gmail.com'},
-    {label:'Bio paragraph', id:'ab', type:'textarea', height:120, value: document.querySelector('.author-bio')?.textContent||''},
+// ---- AUTHOR SECTION HEADER ----
+function editAuthorSection() {
+  openEditModal('Author Section Header', [
+    {label:'Section Label', id:'asl', type:'text', value: document.getElementById('authorSectionLabel')?.textContent||''},
+    {label:'Author Name', id:'an', type:'text', value: document.getElementById('authorName')?.textContent||''},
+    {label:'Tagline / Roles', id:'at', type:'textarea', height:60, value: document.getElementById('authorTagline')?.textContent||''},
+    {label:'Email Address', id:'ae', type:'text', value: 'medrankseo@gmail.com'},
   ], function() {
-    if (document.querySelector('.author-profile-info h2')) document.querySelector('.author-profile-info h2').textContent = getVal('an');
-    if (document.querySelector('.author-tagline')) document.querySelector('.author-tagline').textContent = getVal('at');
-    if (document.querySelector('.author-contact-link')) {
-      document.querySelector('.author-contact-link').textContent = '✉ ' + getVal('ae');
-      document.querySelector('.author-contact-link').href = 'mailto:' + getVal('ae');
+    if (document.getElementById('authorSectionLabel')) document.getElementById('authorSectionLabel').textContent = getVal('asl');
+    if (document.getElementById('authorName')) document.getElementById('authorName').textContent = getVal('an');
+    if (document.getElementById('authorTagline')) document.getElementById('authorTagline').textContent = getVal('at');
+    const emailEl = document.getElementById('authorEmail');
+    if (emailEl) { emailEl.textContent = '✉ ' + getVal('ae'); emailEl.href = 'mailto:' + getVal('ae'); }
+    saveSiteContent();
+    closeEditModal();
+  });
+}
+
+// ---- AUTHOR BIO ----
+function editAuthorBio() {
+  openEditModal('Author Bio', [
+    {label:'Bio Text', id:'bio', type:'textarea', height:160, value: document.getElementById('authorBio')?.textContent||''},
+  ], function() {
+    if (document.getElementById('authorBio')) document.getElementById('authorBio').textContent = getVal('bio');
+    saveSiteContent();
+    closeEditModal();
+  });
+}
+
+// ---- PLATFORMS ----
+function editPlatformsSection() {
+  const links = [...document.querySelectorAll('#platformsList a')];
+  let fields = [{label:'Section intro text', id:'pintro', type:'text', value:'Click any platform to visit:'}];
+  links.forEach((a, i) => {
+    fields.push({label:`Platform ${i+1} Name`, id:`pname${i}`, type:'text', value: a.textContent.replace('↗','').replace(/^[^\w]+/,'').trim()});
+    fields.push({label:`Platform ${i+1} URL`, id:`purl${i}`, type:'text', value: a.href});
+    fields.push({label:`Platform ${i+1} Emoji`, id:`pemoji${i}`, type:'text', value: a.textContent.trim().charAt(0)});
+  });
+  openEditModal('Digital Platforms', fields, function() {
+    const list = document.getElementById('platformsList');
+    let html = '';
+    for (let i = 0; i < links.length; i++) {
+      const name = getVal('pname'+i);
+      const url = getVal('purl'+i);
+      const emoji = getVal('pemoji'+i);
+      if (name && url) html += `<a href="${url}" target="_blank" rel="noopener" class="platform-tag platform-tag-link">${emoji} ${name} ↗</a>`;
     }
-    if (document.querySelector('.author-bio')) document.querySelector('.author-bio').textContent = getVal('ab');
+    list.innerHTML = html;
+    closeEditModal();
+  });
+}
+
+// ---- APPS ----
+function editAppsSection() {
+  const cards = [...document.querySelectorAll('#appsList .author-app-card')];
+  let fields = [];
+  cards.forEach((c, i) => {
+    fields.push({label:`App ${i+1} Name`, id:`aname${i}`, type:'text', value: c.querySelector('.app-name')?.textContent||''});
+    fields.push({label:`App ${i+1} URL`, id:`aurl${i}`, type:'text', value: c.href||''});
+    fields.push({label:`App ${i+1} Description`, id:`adesc${i}`, type:'textarea', height:55, value: c.querySelector('.app-desc')?.textContent||''});
+    fields.push({label:`App ${i+1} Icon (emoji)`, id:`aicon${i}`, type:'text', value: c.querySelector('.app-icon')?.textContent||''});
+  });
+  openEditModal('Digital Apps', fields, function() {
+    const list = document.getElementById('appsList');
+    let html = '';
+    for (let i = 0; i < cards.length; i++) {
+      const name = getVal('aname'+i);
+      const url = getVal('aurl'+i);
+      const desc = getVal('adesc'+i);
+      const icon = getVal('aicon'+i);
+      if (name && url) html += `<a href="${url}" target="_blank" rel="noopener" class="author-app-card"><div class="app-icon">${icon}</div><div class="app-info"><div class="app-name">${name}</div><div class="app-desc">${desc}</div><span class="app-open-btn">Open App ↗</span></div></a>`;
+    }
+    list.innerHTML = html;
+    closeEditModal();
+  });
+}
+
+// ---- BOOKS ----
+function editBooksSection() {
+  const books = [...document.querySelectorAll('#booksList .author-book')];
+  let fields = [];
+  books.forEach((b, i) => {
+    fields.push({label:`Book ${i+1} Title`, id:`btitle${i}`, type:'text', value: b.querySelector('strong')?.textContent||''});
+    fields.push({label:`Book ${i+1} ISBN / Note`, id:`bisbn${i}`, type:'text', value: b.querySelector('.book-isbn')?.textContent||''});
+  });
+  openEditModal('Published Books', fields, function() {
+    const list = document.getElementById('booksList');
+    let html = '';
+    for (let i = 0; i < books.length; i++) {
+      const title = getVal('btitle'+i);
+      const isbn = getVal('bisbn'+i);
+      if (title) html += `<div class="author-book"><strong>${title}</strong><span class="book-isbn">${isbn}</span></div>`;
+    }
+    list.innerHTML = html;
+    closeEditModal();
+  });
+}
+
+// ---- RESEARCH PAPERS ----
+function editResearchSection() {
+  const papers = [...document.querySelectorAll('#papersList .author-paper a')];
+  let fields = [];
+  papers.forEach((a, i) => {
+    fields.push({label:`Paper ${i+1} Title`, id:`ptitle${i}`, type:'text', value: a.textContent||''});
+    fields.push({label:`Paper ${i+1} URL`, id:`plink${i}`, type:'text', value: a.href||''});
+  });
+  openEditModal('Research Papers', fields, function() {
+    const list = document.getElementById('papersList');
+    let html = '';
+    for (let i = 0; i < papers.length; i++) {
+      const title = getVal('ptitle'+i);
+      const url = getVal('plink'+i);
+      if (title && url) html += `<div class="author-paper"><a href="${url}" target="_blank">${title}</a></div>`;
+    }
+    list.innerHTML = html;
+    closeEditModal();
+  });
+}
+
+// ---- WEBSITES ----
+function editWebsitesSection() {
+  const cards = [...document.querySelectorAll('#websitesList .author-website-card')];
+  let fields = [];
+  cards.forEach((c, i) => {
+    fields.push({label:`Site ${i+1} Name`, id:`wname${i}`, type:'text', value: c.querySelector('.aw-name')?.textContent||''});
+    fields.push({label:`Site ${i+1} URL`, id:`wurl${i}`, type:'text', value: c.href||''});
+    fields.push({label:`Site ${i+1} Emoji`, id:`wicon${i}`, type:'text', value: c.querySelector('.aw-icon')?.textContent||''});
+  });
+  openEditModal('My Websites', fields, function() {
+    const list = document.getElementById('websitesList');
+    let html = '';
+    for (let i = 0; i < cards.length; i++) {
+      const name = getVal('wname'+i);
+      const url = getVal('wurl'+i);
+      const icon = getVal('wicon'+i);
+      if (name && url) {
+        let displayUrl = url.replace(/https?:\/\//,'').replace(/\/$/,'');
+        html += `<a href="${url}" target="_blank" class="author-website-card"><div class="aw-icon">${icon}</div><div class="aw-name">${name}</div><div class="aw-url">${displayUrl}</div></a>`;
+      }
+    }
+    list.innerHTML = html;
     closeEditModal();
   });
 }
